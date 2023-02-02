@@ -16,6 +16,7 @@
     "vue-class-component": "^8.0.0-rc.1",
     "vue-property-decorator": "^10.0.0-rc.3",
     "vue-router": "^4.1.6",
+    "vue3-easy-data-table": "^1.5.30",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

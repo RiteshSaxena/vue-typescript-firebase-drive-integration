@@ -2,21 +2,12 @@
   <navbar-logo />
   <h4 class="text-center" v-if="loading">Loading...</h4>
   <drive-connection v-else />
-  <div class="container mt-3" v-if="files.length">
-    <table class="table">
-      <thead>
-        <tr>
-          <th colspan="3" scope="col">Filename</th>
-          <th class="text-end" scope="col">Date Modified</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="file in files" :key="file.id">
-          <td colspan="3">{{ file.name }}</td>
-          <td class="text-end">{{ file.modifiedTime }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container mt-4" v-if="files.length">
+    <EasyDataTable :headers="headers" :items="files" :hide-footer="true">
+      <template #item-modifiedTime="item">
+        {{ new Date(item.modifiedTime) }}
+      </template>
+    </EasyDataTable>
   </div>
 </template>
 
@@ -26,16 +17,23 @@ import { Options, Vue } from 'vue-property-decorator';
 import NavbarLogo from '@/components/NavbarLogo.vue';
 import LoginForm from '@/components/LoginForm.vue';
 import DriveConnection from '@/components/dashboard/DriveConnection.vue';
+import EasyDataTable from 'vue3-easy-data-table';
 
 @Options({
   components: {
     DriveConnection,
     NavbarLogo,
     LoginForm,
+    EasyDataTable,
   },
 })
 export default class Dashboard extends Vue {
   loading = false;
+
+  headers = [
+    { text: 'Filename', value: 'name', sortable: true },
+    { text: 'Date Modified', value: 'modifiedTime', sortable: true },
+  ];
 
   get files() {
     return this.$store.getters['files/getFiles'];
