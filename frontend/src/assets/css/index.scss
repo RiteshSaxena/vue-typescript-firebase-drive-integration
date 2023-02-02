@@ -1,0 +1,74 @@
+body {
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+.btn {
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+input.form-control {
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &:focus {
+    border-color: #424649;
+    box-shadow: none;
+  }
+}
+.login-form-container {
+  height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .login-heading {
+    font-size: 44px;
+    line-height: 53px;
+  }
+  .login-form {
+    min-width: 350px;
+    margin-top: 1rem;
+  }
+  .forgot-password-link {
+    font-size: 11px;
+    line-height: 16px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+  }
+}
+.forgot-form-container {
+  height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .forgot-heading {
+    font-size: 44px;
+    line-height: 53px;
+  }
+  .forgot-text {
+    color: #666666;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 0;
+  }
+  .forgot-password-form {
+    min-width: 350px;
+    margin-top: 1rem;
+  }
+}
+span.error-text {
+  color: #FF1111;
+  font-size: 12px;
+  line-height: 16px;
+}
