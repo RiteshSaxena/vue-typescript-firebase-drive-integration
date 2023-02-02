@@ -8,7 +8,12 @@
       <p class="m-0 status-text">
         Status: <span>{{ isConnected ? 'Connected' : 'Disconnected' }}</span>
       </p>
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#connectModal">
+      <button
+        class="btn"
+        :class="{ 'btn-dark': !isConnected, 'btn-outline-dark': isConnected }"
+        data-bs-toggle="modal"
+        data-bs-target="#connectModal"
+      >
         {{ isConnected ? 'Reconnect' : 'Connect Account' }}
       </button>
     </div>
@@ -67,3 +72,9 @@ export default class DriveConnection extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.status-text span {
+  color: #666666;
+}
+</style>
