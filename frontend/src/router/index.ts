@@ -5,6 +5,7 @@ import store from '@/store';
 import Login from '@/views/Login.vue';
 import ForgotPassword from '@/views/ForgotPassword.vue';
 import Dashboard from '@/views/Dashboard.vue';
+import ApplicationUrl from '@/views/ApplicationUrl.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -24,12 +25,17 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
+    path: '/applications',
+    name: 'Applications',
     component: Dashboard,
     meta: {
       auth: true,
     },
+  },
+  {
+    path: '/application/:userId',
+    name: 'ApplicationUrl',
+    component: ApplicationUrl,
   },
 ];
 

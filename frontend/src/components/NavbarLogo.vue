@@ -4,6 +4,7 @@
       <img src="../assets/img/logo.png" alt="Logo" />
     </router-link>
     <div class="user-account" v-if="currentUser">
+      <add-marker />
       <span class="user-icon">
         <i class="fa-solid fa-user"></i>
       </span>
@@ -14,8 +15,14 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import { Vue, Options } from 'vue-property-decorator';
+import AddMarker from './dashboard/AddMarker.vue';
 
+@Options({
+  components: {
+    AddMarker,
+  },
+})
 export default class NavbarLogo extends Vue {
   get currentUser() {
     return this.$store.getters['user/getUser'];
